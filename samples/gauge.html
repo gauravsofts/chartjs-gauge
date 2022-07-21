@@ -41,6 +41,7 @@
 
     var data = randomData();
     var value = randomValue(data);
+    var marker = randomValue(data);
 
     var config = {
       type: 'gauge',
@@ -49,6 +50,7 @@
         datasets: [{
           data: data,
           value: value,
+          marker: marker,
           backgroundColor: ['green', 'yellow', 'orange', 'red'],
           borderWidth: 2
         }]
@@ -88,7 +90,8 @@
     document.getElementById('randomizeData').addEventListener('click', function() {
       config.data.datasets.forEach(function(dataset) {
         dataset.data = randomData();
-        dataset.value = randomValue(dataset.data);
+          dataset.value = randomValue(dataset.data);
+          dataset.marker = randomValue(dataset.data);
       });
 
       window.myGauge.update();
